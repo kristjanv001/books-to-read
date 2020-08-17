@@ -12,7 +12,7 @@ export default function NavBar() {
           <MenuBookIcon style={{ paddingRight: "10px" }} />
         </Typography>
 
-        <Typography color="inherit"> BOOK TO READ</Typography>
+        <Typography color="inherit"> BOOKS TO READ</Typography>
       </Toolbar>
     </AppBar>
   );

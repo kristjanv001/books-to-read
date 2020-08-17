@@ -1,7 +1,7 @@
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import React from "react";
-import TodoApp from "./TodoApp";
+import BookApp from "./BookApp";
 import NavBar from "./NavBar";
 // import Footer from "./Footer";
 
@@ -21,7 +21,7 @@ export default function MainContainer() {
 
       <Grid container justify="center" style={{ marginTop: "3rem" }}>
         <Grid item xs={11} md={8} lg={4}>
-          <TodoApp />
+          <BookApp />
         </Grid>
       </Grid>
 

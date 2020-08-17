@@ -5,18 +5,24 @@ import ListItemText from "@material-ui/core/ListItemText";
 import IconButton from "@material-ui/core/IconButton";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { db } from "../firebase/firebaseConfig";
 
-export default function TodoItem(props) {
+export default function BookItem(props) {
   console.log(props);
   return (
     <React.Fragment>
       <ListItem
-        style={{ textDecoration: props.todo.done ? "line-through" : "none" }}
+        style={{ textDecoration: props.book.done ? "line-through" : "none" }}
       >
-        <Checkbox checked={props.todo.done} />
-        <ListItemText secondary={"author"}>{props.todo.text}</ListItemText>
+        <Checkbox checked={props.book.done} />
+        <ListItemText secondary={props.book.author}>
+          {props.book.title}
+        </ListItemText>
         <ListItemSecondaryAction>
-          <IconButton aria-label="Delete">
+          <IconButton
+            aria-label="Delete"
+            onClick={(e) => db.collection("books").doc(props.book.id).delete()}
+          >
             <DeleteIcon />
           </IconButton>
         </ListItemSecondaryAction>

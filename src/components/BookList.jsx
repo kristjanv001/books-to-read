@@ -1,15 +1,15 @@
 import React from "react";
-import TodoItem from "./TodoItem";
+import BookItem from "./BookItem";
 import List from "@material-ui/core/List";
 import Paper from "@material-ui/core/Paper";
 
-export default function TodoList(props) {
+export default function BookList(props) {
   return (
     <div>
       <Paper style={{ backgroundColor: "linen" }}>
         <List>
-          {props.todos.map((todo) => {
-            return <TodoItem key={todo.id} todo={todo} />;
+          {props.books.map((book) => {
+            return <BookItem key={book.id} book={book} />;
           })}
         </List>
       </Paper>

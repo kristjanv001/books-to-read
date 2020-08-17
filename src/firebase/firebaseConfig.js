@@ -3,13 +3,13 @@ import "firebase/firestore";
 import "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCd1gRSitns0V_rDFCXr2Ve_SUsMAO-K5c",
-  authDomain: "react-todo-cprgrmmr.firebaseapp.com",
-  databaseURL: "https://react-todo-cprgrmmr.firebaseio.com",
-  projectId: "react-todo-cprgrmmr",
-  storageBucket: "react-todo-cprgrmmr.appspot.com",
-  messagingSenderId: "22974497781",
-  appId: "1:22974497781:web:790d6d2b8d656ff0b596bc",
+  apiKey: "AIzaSyC-6SYABWkeNu4M5HxnC0wt-3aQmbfi8qo",
+  authDomain: "books-to-read-8be69.firebaseapp.com",
+  databaseURL: "https://books-to-read-8be69.firebaseio.com",
+  projectId: "books-to-read-8be69",
+  storageBucket: "books-to-read-8be69.appspot.com",
+  messagingSenderId: "306780162105",
+  appId: "1:306780162105:web:7e23e5bf10e1b7f258a5e8"
 };
 firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore();

@@ -1,3 +1,7 @@
+// useState
+const [todos, setTodos] = useState([]);
+const [inputValue, setInput] = useState("");
+
 useEffect(() => {
   db.collection("todos")
     .orderBy("timestamp", "desc")
@@ -27,8 +31,6 @@ const handleClick = (e) => {
 const handleChange = (e) => {
   setInput(e.target.value);
 };
-
-
 
 // Delete functionality
 import { db } from "../firebase/firebaseConfig";
