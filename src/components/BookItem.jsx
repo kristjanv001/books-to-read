@@ -14,7 +14,7 @@ export default function BookItem(props) {
       <ListItem
         style={{ textDecoration: props.book.done ? "line-through" : "none" }}
       >
-        <Checkbox checked={props.book.done} />
+        {/* <Checkbox checked={props.book.done} /> */}
         <ListItemText secondary={props.book.author}>
           {props.book.title}
         </ListItemText>

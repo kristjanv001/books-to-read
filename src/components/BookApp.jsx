@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import BookForm from "./BookForm";
 import BookList from "./BookList";
 import { db } from "../firebase/firebaseConfig";
+import Welcome from "./Welcome";
 
-export default function TodoApp() {
+export default function BookApp(props) {
   const [books, setBook] = useState([]);
 
   useEffect(() => {
@@ -23,9 +24,14 @@ export default function TodoApp() {
 
   return (
     <div>
-      {/* <h2>TodoApp Heading</h2> */}
-      <BookForm />
-      <BookList books={books} />
+      {!props.currentUser ? (
+        <Welcome />
+      ) : (
+        <div>
+          <BookForm />
+          <BookList books={books} />
+        </div>
+      )}
     </div>
   );
 }

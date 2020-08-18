@@ -3,8 +3,12 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
+import Button from "@material-ui/core/Button";
+import { signInWithGoogle, auth } from "../firebase/firebaseConfig";
 
-export default function NavBar() {
+// console.log(signInWithGoogle);
+
+export default function NavBar(props) {
   return (
     <AppBar color="primary" position="static">
       <Toolbar>
@@ -12,7 +16,29 @@ export default function NavBar() {
           <MenuBookIcon style={{ paddingRight: "10px" }} />
         </Typography>
 
-        <Typography color="inherit"> BOOKS TO READ</Typography>
+        <Typography style={{ flex: 1 }} color="inherit">
+          BOOKS TO READ
+        </Typography>
+
+        {props.currentUser ? (
+          <Button
+            onClick={() => auth.signOut()}
+            disableElevation
+            variant="contained"
+            color="secondary"
+          >
+            Log out
+          </Button>
+        ) : (
+          <Button
+            onClick={signInWithGoogle}
+            disableElevation
+            variant="contained"
+            color="default"
+          >
+            Log in
+          </Button>
+        )}
       </Toolbar>
     </AppBar>
   );
