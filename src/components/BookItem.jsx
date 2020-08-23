@@ -8,7 +8,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../firebase/firebaseConfig";
 
 export default function BookItem(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <React.Fragment>
       <ListItem

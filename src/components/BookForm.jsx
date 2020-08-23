@@ -11,13 +11,21 @@ export default function BookForm(props) {
   const [inputTitle, setInputTitle, resetInputTitle] = useInputState("");
   const [inputAuthor, setInputAuthor, resetInputAuthor] = useInputState("");
 
+  // console.log("noniinahh", props.currentUser.id);
+
+  // new
+  /* db.collection(`users/${props.currentUser.id}`).add({
+      booksObj: [], */
+
   const handleSubmit = (e) => {
     e.preventDefault();
     db.collection("books").add({
+      userId: props.currentUser.id,
       title: inputTitle,
       author: inputAuthor,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
+
     resetInputTitle();
     resetInputAuthor();
   };
