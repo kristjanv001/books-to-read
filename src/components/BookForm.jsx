@@ -11,12 +11,6 @@ export default function BookForm(props) {
   const [inputTitle, setInputTitle, resetInputTitle] = useInputState("");
   const [inputAuthor, setInputAuthor, resetInputAuthor] = useInputState("");
 
-  // console.log("noniinahh", props.currentUser.id);
-
-  // new
-  /* db.collection(`users/${props.currentUser.id}`).add({
-      booksObj: [], */
-
   const handleSubmit = (e) => {
     e.preventDefault();
     db.collection("books").add({
@@ -32,7 +26,7 @@ export default function BookForm(props) {
 
   return (
     <Paper
-      style={{ backgroundColor: "snow", margin: "1rem 0", padding: "1rem" }}
+      style={{ backgroundColor: "#D9D4C0", margin: "1rem 0", padding: "1rem" }}
     >
       <form onSubmit={handleSubmit}>
         <TextField
@@ -57,11 +51,16 @@ export default function BookForm(props) {
           type="submit"
           // disabled
           // variant="outlined"
-          disableElevation
-          style={{ marginTop: "1rem" }}
+          size="large"
+          style={{
+            marginTop: "1rem",
+            backgroundColor: "#D57249",
+            width: "100%",
+            fontWeight: "900",
+            color: "whitesmoke",
+          }}
           variant="contained"
           color="default"
-          startIcon={<SaveIcon />}
         >
           Save
         </Button>
