@@ -2,7 +2,6 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-
 // Initial config
 const firebaseConfig = {
   apiKey: "AIzaSyC-6SYABWkeNu4M5HxnC0wt-3aQmbfi8qo",
@@ -28,7 +27,6 @@ export const createUserInDb = async (userAuth, additionalData) => {
   if (!userAuth) return;
   const userRef = db.doc(`users/${userAuth.uid}`);
   const snapShot = await userRef.get();
-  console.log(snapShot);
 
   if (!snapShot.exists) {
     const { displayName, email } = userAuth;

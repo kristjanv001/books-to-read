@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -8,20 +8,34 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import { db } from "../firebase/firebaseConfig";
 
 export default function BookItem(props) {
-  // console.log(props);
+  const handleCheckBox = (e) => {
+    db.collection("books").doc(props.book.id).update({
+      done: e.target.checked,
+    });
+  };
+
   return (
     <React.Fragment>
       <ListItem
-        style={{ textDecoration: props.book.done ? "line-through" : "none" }}
+        style={{
+          color: props.book.done ? "gray" : "black",
+        }}
       >
-        {/* <Checkbox checked={props.book.done} /> */}
+        <Checkbox
+          style={{
+            color: "#D57249",
+          }}
+          onChange={handleCheckBox}
+          checked={props.book.done}
+        />
+
         <ListItemText secondary={props.book.author}>
           {props.book.title}
         </ListItemText>
         <ListItemSecondaryAction>
           <IconButton
             aria-label="Delete"
-            onClick={(e) => db.collection("books").doc(props.book.id).delete()}
+            onClick={() => db.collection("books").doc(props.book.id).delete()}
           >
             <DeleteIcon />
           </IconButton>

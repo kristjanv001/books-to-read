@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import useInputState from "../hooks/useInputState";
 import { db } from "../firebase/firebaseConfig";
 import firebase from "../firebase/firebaseConfig";
-import SaveIcon from "@material-ui/icons/Save";
 import Button from "@material-ui/core/Button";
 
 export default function BookForm(props) {
-  const [inputTitle, setInputTitle, resetInputTitle] = useInputState("");
-  const [inputAuthor, setInputAuthor, resetInputAuthor] = useInputState("");
+  const [inputTitle, setInputTitle] = useState("");
+  const [inputAuthor, setInputAuthor] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,10 +16,10 @@ export default function BookForm(props) {
       title: inputTitle,
       author: inputAuthor,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      done: false,
     });
-
-    resetInputTitle();
-    resetInputAuthor();
+    setInputTitle("");
+    setInputAuthor("");
   };
 
   return (
@@ -32,7 +30,7 @@ export default function BookForm(props) {
         <TextField
           type="text"
           value={inputTitle}
-          onChange={setInputTitle}
+          onChange={(e) => setInputTitle(e.target.value)}
           margin="normal"
           label="Add the title"
           fullWidth
@@ -40,7 +38,7 @@ export default function BookForm(props) {
         <TextField
           type="text"
           value={inputAuthor}
-          onChange={setInputAuthor}
+          onChange={(e) => setInputAuthor(e.target.value)}
           margin="normal"
           label="Add the name of the author(s)"
           fullWidth
@@ -49,10 +47,9 @@ export default function BookForm(props) {
         <Button
           disabled={!inputTitle || !inputAuthor}
           type="submit"
-          // disabled
-          // variant="outlined"
           size="large"
           style={{
+            fontSize: "1em",
             marginTop: "1rem",
             backgroundColor: "#D57249",
             width: "100%",

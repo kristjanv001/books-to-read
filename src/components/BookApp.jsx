@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import BookForm from "./BookForm";
 import BookList from "./BookList";
-import { db } from "../firebase/firebaseConfig";
 import Welcome from "./Welcome";
 
 export default function BookApp(props) {
