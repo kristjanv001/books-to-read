@@ -23,7 +23,7 @@ export default function BookItem(props) {
       >
         <Checkbox
           style={{
-            color: "#D57249",
+            color: "#2ec1ac",
           }}
           onChange={handleCheckBox}
           checked={props.book.done}

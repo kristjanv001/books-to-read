@@ -5,7 +5,7 @@ import Welcome from "./Welcome";
 
 export default function BookApp(props) {
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       {!props.currentUser ? (
         <Welcome />
       ) : (

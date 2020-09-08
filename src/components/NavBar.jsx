@@ -3,76 +3,59 @@ import React from "react";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import { signInWithGoogle } from "../firebase/firebaseConfig";
+import "./NavBar.css";
 
 export default function NavBar(props) {
   return (
     <AppBar
       elevation={0}
       style={{
-        backgroundColor: "#456E8D",
+        backgroundColor: "#7c7575",
         height: "100px",
+        width: "100%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
       }}
       position="static"
     >
-      <Toolbar
+      <div
         style={{
-          maxWidth: "800px",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
+        <span
+          id="navbar-text"
+          style={{ color: "#fbf0f0", paddingBottom: "10px" }}
         >
-          <span
-            style={{
-              fontWeight: "bold",
-              color: "whitesmoke",
-              padding: "10px 0",
-              letterSpacing: "1px",
-            }}
-          >
-            {props.currentUser
-              ? `Welcome, ${props.currentUser.displayName}`
-              : `Please sign in to use this app`}
-          </span>
-          <div id="logout">
-            {props.currentUser ? (
-              <div>
-                <Button
-                  onClick={props.logOut}
-                  disableElevation
-                  style={{
-                    color: "#D57249",
-                    fontWeight: "600",
-                    flexGrow: "0",
-                  }}
-                >
-                  Log out
-                </Button>
-              </div>
-            ) : (
-              <Button
-                onClick={signInWithGoogle}
-                disableElevation
+          {props.currentUser
+            ? `Welcome, ${props.currentUser.displayName}`
+            : `Please sign in to use this app`}
+        </span>
+
+        <div id="logout">
+          {props.currentUser ? (
+            <div>
+              <a
+                onClick={props.logOut}
                 style={{
-                  color: "#fff48f",
+                  cursor: "pointer",
+                  textDecoration: "underline",
+                  color: "white",
                   fontWeight: "600",
-                  flexGrow: "0",
+                  // flexGrow: "0",
                 }}
               >
-                Sign in with Google
-              </Button>
-            )}
-          </div>
+                Log out
+              </a>
+            </div>
+          ) : null}
         </div>
-      </Toolbar>
+      </div>
     </AppBar>
   );
 }

@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 export default function BookList(props) {
   return (
     <div>
-      <Paper style={{ backgroundColor: "#D9D4C0", minHeight: 88 }}>
+      <Paper style={{ backgroundColor: "#whitesmoke", minHeight: 88 }}>
         <List>
           {props.books.map((book) => {
             return <BookItem key={book.id} book={book} />;

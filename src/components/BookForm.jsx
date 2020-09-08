@@ -24,7 +24,11 @@ export default function BookForm(props) {
 
   return (
     <Paper
-      style={{ backgroundColor: "#D9D4C0", margin: "1rem 0", padding: "1rem" }}
+      style={{
+        backgroundColor: "#whitesmoke",
+        margin: "1rem 0",
+        padding: "1rem",
+      }}
     >
       <form onSubmit={handleSubmit}>
         <TextField
@@ -51,7 +55,7 @@ export default function BookForm(props) {
           style={{
             fontSize: "1em",
             marginTop: "1rem",
-            backgroundColor: "#D57249",
+            backgroundColor: "#2ec1ac",
             width: "100%",
             fontWeight: "900",
             color: "whitesmoke",

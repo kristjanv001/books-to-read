@@ -9,8 +9,10 @@ export default function App() {
   const styles = {
     padding: 0,
     margin: 0,
-    height: "100vh",
-    backgroundColor: "#4C799A",
+    minHeight: "100vh",
+    backgroundColor: "#fbf0f0",
+    display: "flex",
+    flexDirection: "column",
   };
 
   const [currentUser, setCurrentUser] = useState(null);
@@ -52,7 +54,17 @@ export default function App() {
   return (
     <Paper style={styles} elevation={0}>
       <NavBar currentUser={currentUser} logOut={logOut} />
-      <Grid container justify="center" style={{ padding: 10 }}>
+      <Grid
+        container
+        justify="center"
+        style={{
+          padding: "1em 0.5em",
+          flexGrow: "1",
+          display: "flex",
+          height: "100%",
+          // alignItems: "center",
+        }}
+      >
         <Grid>
           <BookApp currentUser={currentUser} books={books} />
         </Grid>
