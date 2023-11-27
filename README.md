@@ -1,6 +1,6 @@
 # Books To Read
 
-![](https://i.imgur.com/jiCBFUt.jpeg)
+![](https://i.imgur.com/hxYePhQ.png)
 
 ## 📋 Description
 Books To Read is an application to keep track of books. 
